@@ -1,5 +1,6 @@
 import {
   ArrayNotEmpty,
+  IsEmail,
   IsEnum,
   IsNotEmpty,
   IsOptional,
@@ -19,4 +20,8 @@ export class CreateClassDto {
   @IsOptional()
   @IsEnum(Status, { message: 'Неверный тип статуса' })
   status: Status;
+
+  @IsOptional()
+  @IsEmail({}, { message: 'Некорректный email' })
+  email: string;
 }
